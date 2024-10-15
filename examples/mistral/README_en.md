@@ -42,7 +42,7 @@ wget https://atp-modelzoo-wlcb-pai.oss-cn-wulanchabu.aliyuncs.com/release/models
 wget https://atp-modelzoo-wlcb-pai.oss-cn-wulanchabu.aliyuncs.com/release/models/pai-megatron-patch/mistral-datasets/alpaca_zh-mistral-valid.json
 ```
 
-# Megatron-LM-Dense Model Training Process
+# Megatron-LM-Dense Model Training Process (Legacy)
 
 Run the `hf2megatron_convertor.sh` script with the following parameters:
 ```
@@ -188,7 +188,8 @@ false \
 /mnt/output_megatron_mistral
 ```
 
-# Megatron-Core-Dense Model Training Workflow
+# Megatron-Core-Dense Model Training Workflow (MCore)
+
 Run the `hf2mcore_convertor.sh` script with the following parameters:
 ```
 MODEL_SIZE=$1                  # Model size: 7B/8x7B

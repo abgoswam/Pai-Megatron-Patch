@@ -4,60 +4,35 @@ set -x #This command turns on debugging by making the shell print each command b
 set -e #This command tells the shell to exit immediately if any command it runs exits with a non-zero status (which usually indicates an error)
 set -u
 
-cd /home/aiscuser/Pai-Megatron-Patch/examples/mistral
+cd /home/aiscuser/Pai-Megatron-Patch/examples/mistral &&
+ls -lh &&
 sh run_finetune_mcore_mistral_withGA.sh  \
-# Running environment: dlc, dsw
-dsw  \
-# Path to Megatron Patch code
-../../ \
-# Model size: 7B, 13B
-7B   \
-# Per GPU batch size: 4, 8
-1    \
-# Global batch size
-8 \
-# Learning rate: 1e-5, 5e-5
-1e-5   \
-# Minimum learning rate: 1e-6, 5e-6
-1e-6   \
-# Sequence length
-128  \
-# Padding length: 100
-128  \
-# Vocabulary expansion size
-0   \
-# Precision: fp16, bf16
-bf16  \
-# Tensor parallelism
-4   \
-# Pipeline parallelism
-1  \
-# Activation checkpointing mode: sel, full
-sel  \
-# Use Megatron's Zero-1 memory optimizer: true, false
-true   \
-# Use Flash Attention: true, false
-false  \
-# Use sequence parallelism: true, false
-false   \
-# Use Transformer Engine: true, false
-false   \
-# Enable MoE: true, false
-false \
-# Checkpoint save interval
-100000  \
-# Training dataset path
-/mnt/mistral-datasets/alpaca_zh-mistral-train.json   \
-# Validation dataset path
-/mnt/mistral-datasets/alpaca_zh-mistral-valid.json   \
-# Pre-trained model path
-/mnt/mistral-ckpts/Mistral-7B-v0.1-to-mcore-tp4-pp1   \
-# Number of training steps
-100000000   \
-# Number of warmup steps
-10000   \
-# Output path for training
-/mnt/output_mcore_mistral
+    dsw  \
+    ../../ \
+    7B   \
+    1    \
+    8 \
+    1e-5   \
+    1e-6   \
+    128  \
+    128  \
+    0   \
+    bf16  \
+    1   \
+    1  \
+    sel  \
+    true   \
+    false  \
+    false   \
+    false   \
+    false \
+    50  \
+    /mnt/syntheticpipelinetrainerv1/mcore_posttrain_v1/datasets_test/mistral-datasets/alpaca_zh-mistral-train.json   \
+    /mnt/syntheticpipelinetrainerv1/mcore_posttrain_v1/datasets_test/mistral-datasets/alpaca_zh-mistral-valid.json   \
+    /mnt/syntheticpipelinetrainerv1/mcore_posttrain_v1/ckpts_produced/mistral_ckpts/Mistral-7B-v0.1-to-mcore-tp1-pp1   \
+    100   \
+    10   \
+    /mnt/syntheticpipelinetrainerv1/mcore_posttrain_v1/ckpts_produced/output_mcore_mistral_sft
 
 
 # ENV=$1                          # Running environment: dlc, dsw
@@ -71,7 +46,7 @@ false \
 # PAD_LEN=$9                      # Padding length: 100
 # EXTRA_VOCAB_SIZE=${10}          # Vocabulary expansion size
 # PR=${11}                        # Precision: fp16, bf16
-# TP=${12}                        # Model parallelism
+# TP=${12}                        # Tensor parallelism =================================
 # PP=${13}                        # Pipeline parallelism
 # AC=${14}                        # Activation checkpointing mode: sel, full
 # DO=${15}                        # Use Megatron's Zero-1 memory optimizer: true, false
@@ -79,10 +54,10 @@ false \
 # SP=${17}                        # Use sequence parallelism: true, false
 # TE=${18}                        # Use Transformer Engine: true, false
 # MOE=${19}                       # Enable MoE: true, false
-# SAVE_INTERVAL=${20}             # Checkpoint save interval
-# DATASET_PATH=${21}              # Training dataset path
-# VALID_DATASET_PATH=${22}        # Validation dataset path
-# PRETRAIN_CHECKPOINT_PATH=${23}  # Pre-trained model path
+# SAVE_INTERVAL=${20}             # Checkpoint save interval ===========================
+# DATASET_PATH=${21}              # Training dataset path (in jsonl) ===================
+# VALID_DATASET_PATH=${22}        # Validation dataset path (in jsonl) =================
+# PRETRAIN_CHECKPOINT_PATH=${23}  # Pre-trained model path =============================
 # TRAIN_ITERS=${24}               # Number of training steps
 # LR_WARMUP_ITERS=${25}           # Number of warmup steps
-# OUTPUT_BASEPATH=${26}           # Output path for training
+# OUTPUT_BASEPATH=${26}           # Output path for training ===========================

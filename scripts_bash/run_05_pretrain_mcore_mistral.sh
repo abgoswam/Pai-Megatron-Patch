@@ -26,7 +26,7 @@ sh run_pretrain_mcore_mistral.sh  \
     false   \
     false   \
     false \
-    100000  \
+    500  \
     /mnt/syntheticpipelinetrainerv1/mcore_posttrain_v1/datasets_test/mistral-datasets/wudao_mistralbpe_content_document \
     /mnt/syntheticpipelinetrainerv1/mcore_posttrain_v1/ckpts_produced/mistral_ckpts/Mistral-7B-v0.1-to-mcore-tp1-pp1   \
     100000000   \
@@ -45,7 +45,7 @@ sh run_pretrain_mcore_mistral.sh  \
 # PAD_LEN=$9                      # Padding length: 100
 # EXTRA_VOCAB_SIZE=${10}          # Vocabulary expansion size
 # PR=${11}                        # Precision: fp16, bf16
-# TP=${12}                        # Tensor parallelism
+# TP=${12}                        # Tensor parallelism =================================
 # PP=${13}                        # Pipeline parallelism
 # AC=${14}                        # Activation checkpointing mode: sel, full
 # DO=${15}                        # Use Megatron's Zero-1 memory optimizer: true, false
@@ -53,7 +53,7 @@ sh run_pretrain_mcore_mistral.sh  \
 # SP=${17}                        # Use sequence parallelism: true, false
 # TE=${18}                        # Use Transformer Engine: true, false
 # MOE=${19}                       # Enable MoE: true, false
-# SAVE_INTERVAL=${20}             # Checkpoint save interval
+# SAVE_INTERVAL=${20}             # Checkpoint save interval ===========================
 # DATASET_PATH=${21}              # Training dataset path ==============================
 # PRETRAIN_CHECKPOINT_PATH=${22}  # Pre-trained model path =============================
 # TRAIN_TOKENS=${23}              # Number of training tokens

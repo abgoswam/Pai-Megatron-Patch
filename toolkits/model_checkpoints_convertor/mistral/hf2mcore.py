@@ -281,7 +281,7 @@ def load_megatron_model(args, model):
     else:
         raise ValueError('not support yet')
 
-    model.load_state_dict(state_dict)
+    model.load_state_dict(state_dict, strict=False)
     return model
 
 

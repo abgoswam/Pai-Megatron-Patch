@@ -1,7 +1,8 @@
 import torch
 import time
 
-def matmul_on_all_gpus(duration_sec=180, rest_duration_sec=1800):
+matrix_size = 1024*64
+def matmul_on_all_gpus(duration_sec=180, rest_duration_sec=180):
     # Find all available GPU devices
     device_count = torch.cuda.device_count()
     if device_count == 0:
@@ -17,8 +18,8 @@ def matmul_on_all_gpus(duration_sec=180, rest_duration_sec=1800):
             while (time.time() - start_time) < duration_sec:
                 for device in devices:
                     # Initialize random matrices
-                    matrix1 = torch.randn(32, 32, dtype=torch.float16, device=device)
-                    matrix2 = torch.randn(32, 32, dtype=torch.float16, device=device)
+                    matrix1 = torch.randn(matrix_size, matrix_size, dtype=torch.float16, device=device)
+                    matrix2 = torch.randn(matrix_size, matrix_size, dtype=torch.float16, device=device)
 
                     # Perform matrix multiplication
                     result = torch.matmul(matrix1, matrix2)

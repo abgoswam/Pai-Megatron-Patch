@@ -1,3 +1,8 @@
+mnt
+output.log
+output_sft.log
+nohup.out
+
 .idea
 Megatron-LM-*
 LM-Evaluation-Harness*

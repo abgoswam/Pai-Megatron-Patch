@@ -148,6 +148,7 @@ if [ $PRETRAIN_CHECKPOINT_PATH != none ]; then
             --load $PRETRAIN_CHECKPOINT_PATH"
 fi
 
+# (agoswami) Unused.
 EP=$(($TOTAL_GPUS/$TP/$PP))
 
 TRAIN_ITERS=$(( ${TRAIN_TOKENS} / ${GLOBAL_BATCH_SIZE} / ${SEQ_LEN} ))
